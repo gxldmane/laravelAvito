@@ -12,19 +12,24 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Название</th>
-            <th scope="col">Cсылка</th>
         </tr>
         </thead>
-    @foreach($categories as $category)
             <tbody>
             <tr>
                 <th scope="row">{{$category->id}}</th>
                 <td>{{$category->title}}</td>
-                <td><a href="{{route('categories.show', $category->id)}}">Ссылка</a></td>
             <tr>
-    @endforeach
     </table>
     <div>
-        <a class="btn btn-default" href="{{route('categories.create')}}">Добавить категорию</a>
+
+        <a class="btn btn-default" href="{{route('categories.edit', $category->id)}}">Редактировать</a>
+        <form action="{{route('categories.delete', $category->id)}}" method="post">
+            @csrf
+            @method('delete')
+            <input type="submit" class="btn btn-danger" value="Удалить">
+        </form>
+
+
+        <a class="btn btn-default" href="{{route('categories.index')}}">Назад</a>
     </div>
 @endsection
