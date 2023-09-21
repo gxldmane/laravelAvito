@@ -31,28 +31,28 @@ class AppServiceProvider extends ServiceProvider
             $event->menu->add('MAIN NAVIGATION');
             $event->menu->add(
                 [
-                    'text' => 'Users',
+                    'text' => 'Пользователи',
                     'url' => 'admin/users',
                     'icon' => 'users',
                     'label' => User::count(),
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Categories',
+                    'text'        => 'Категории',
                     'url'         => 'admin/categories',
                     'icon'        => 'users',
                     'label'       => Category::count(),
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Ads',
+                    'text'        => 'Объявления',
                     'url'         => 'admin/ads',
                     'icon'        => 'users',
                     'label'       => Ad::count(),
                     'label_color' => 'success',
                 ],
                 [
-                    'text'        => 'Cities',
+                    'text'        => 'Города',
                     'url'         => 'admin/cities',
                     'icon'        => 'users',
                     'label'       => City::count(),

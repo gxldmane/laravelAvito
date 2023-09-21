@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 
 @section('content_header')
-    <h1>Категории</h1>
+    <h1>Города</h1>
 @endsection
 
 
@@ -15,17 +15,17 @@
             <th scope="col">Cсылка</th>
         </tr>
         </thead>
-    @foreach($categories as $category)
+    @foreach($cities as $city)
             <tbody>
             <tr>
-                <th scope="row">{{$category->id}}</th>
-                <td>{{$category->title}}</td>
-                <td><a href="{{route('categories.show', $category->id)}}">Ссылка</a></td>
+                <th scope="row">{{$city->id}}</th>
+                <td>{{$city->title}}</td>
+                <td><a href="{{route('cities.show', $city->id)}}">Ссылка</a></td>
             <tr>
     @endforeach
     </table>
-    {{$categories->links()}}
+    {{$cities->links()}}
     <div>
-        <a class="btn btn-default" href="{{route('categories.create')}}">Добавить категорию</a>
+        <a class="btn btn-default" href="{{route('cities.create')}}">Добавить город</a>
     </div>
 @endsection

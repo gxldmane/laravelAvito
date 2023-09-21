@@ -16,7 +16,7 @@ class Ad extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'ads';
-    protected $fillable = ['title', 'description', 'price', 'image', 'category_id', 'city_id'];
+    protected $fillable = ['title', 'description', 'price', 'image', 'category_id', 'city_id', 'user_id'];
 
     public function category()
     {
