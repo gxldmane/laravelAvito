@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('city_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
