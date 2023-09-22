@@ -19,8 +19,57 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
+
+
+Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name('register.post');
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'App\Http\Controllers\Admin\Main\IndexController')->name('admin.main.index');
+    Route::group(['prefix' => 'categories'], function ()
+    {
+        Route::get('/', 'App\Http\Controllers\Admin\Category\IndexController')->name('categories.index');
+        Route::get('/create','App\Http\Controllers\Admin\Category\CreateController')->name('categories.create');
+        Route::post('/','App\Http\Controllers\Admin\Category\StoreController')->name('categories.store');
+        Route::get('/{category}','App\Http\Controllers\Admin\Category\ShowController')->name('categories.show');
+        Route::get('/{category}/edit','App\Http\Controllers\Admin\Category\EditController')->name('categories.edit');
+        Route::patch('/{category}','App\Http\Controllers\Admin\Category\UpdateController')->name('categories.update');
+        Route::delete('/{category}','App\Http\Controllers\Admin\Category\DestroyController')->name('categories.delete');
+    });
+    Route::group(['prefix' => 'cities'], function ()
+    {
+        Route::get('/', 'App\Http\Controllers\Admin\City\IndexController')->name('cities.index');
+        Route::get('/create','App\Http\Controllers\Admin\City\CreateController')->name('cities.create');
+        Route::post('/','App\Http\Controllers\Admin\City\StoreController')->name('cities.store');
+        Route::get('/{city}','App\Http\Controllers\Admin\City\ShowController')->name('cities.show');
+        Route::get('/{city}/edit','App\Http\Controllers\Admin\City\EditController')->name('cities.edit');
+        Route::patch('/{city}','App\Http\Controllers\Admin\City\UpdateController')->name('cities.update');
+        Route::delete('/{city}','App\Http\Controllers\Admin\City\DestroyController')->name('cities.delete');
+    });
+    Route::group(['prefix' => 'ads'], function ()
+    {
+        Route::get('/', 'App\Http\Controllers\Admin\Ad\IndexController')->name('ads.index');
+        Route::get('/create','App\Http\Controllers\Admin\Ad\CreateController')->name('ads.create');
+        Route::post('/','App\Http\Controllers\Admin\Ad\StoreController')->name('ads.store');
+        Route::get('/{ad}','App\Http\Controllers\Admin\Ad\ShowController')->name('ads.show');
+        Route::get('/{ad}/edit','App\Http\Controllers\Admin\Ad\EditController')->name('ads.edit');
+        Route::patch('/{ad}','App\Http\Controllers\Admin\Ad\UpdateController')->name('ads.update');
+        Route::delete('/{ad}','App\Http\Controllers\Admin\Ad\DestroyController')->name('ads.delete');
+    });
+    Route::group(['prefix' => 'users'], function ()
+    {
+        Route::get('/', 'App\Http\Controllers\Admin\User\IndexController')->name('users.index');
+        Route::get('/create','App\Http\Controllers\Admin\User\CreateController')->name('users.create');
+        Route::post('/','App\Http\Controllers\Admin\User\StoreController')->name('users.store');
+        Route::get('/{user}','App\Http\Controllers\Admin\User\ShowController')->name('users.show');
+        Route::get('/{user}/edit','App\Http\Controllers\Admin\User\EditController')->name('users.edit');
+        Route::patch('/{user}','App\Http\Controllers\Admin\User\UpdateController')->name('users.update');
+        Route::delete('/{user}','App\Http\Controllers\Admin\User\DestroyController')->name('users.delete');
+    });
+
+
 });

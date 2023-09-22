@@ -27,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'city_id',
+        'role',
     ];
 
     /**
@@ -52,5 +54,9 @@ class User extends Authenticatable
     public function ads()
     {
         return $this->hasMany(Ad::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 }

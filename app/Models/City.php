@@ -19,4 +19,7 @@ class City extends Model
     public function ads() {
         return $this->hasMany(Ad::class);
     }
+    public function users() {
+        return $this->hasMany(User::class);
+    }
 }
