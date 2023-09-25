@@ -13,6 +13,7 @@
             <th scope="col">Имя</th>
             <th scope="col">Email</th>
             <th scope="col">Город</th>
+            <th scope="col">Аватар</th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
             <th scope="row">{{$user->name}}</th>
             <td>{{$user->email}}</td>
             <td>{{$user->city->title}}</td>
+            <td>{{$user->avatar}}</td>
         <tr>
     </table>
     <div>

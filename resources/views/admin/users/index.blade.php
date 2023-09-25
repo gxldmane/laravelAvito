@@ -14,6 +14,7 @@
             <th scope="col">Имя</th>
             <th scope="col">Email</th>
             <th scope="col">Город</th>
+            <th scope="col">Аватар</th>
             <th scope="col">Количество объявлении</th>
             <th scope="col">Ссылка</th>
         </tr>
@@ -25,6 +26,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->city->title}}</td>
+                <td>{{$user->avatar}}</td>
                 <td>{{$user->ads->count()}}</td>
                 <td><a href="{{route('users.show', $user->id)}}">Ссылка</a></td>
             <tr>
