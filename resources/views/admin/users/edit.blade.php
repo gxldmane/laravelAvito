@@ -22,6 +22,12 @@
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
+        <label for="avatar" class="form-label">Аватар пользователя</label>
+        <input type="text" id="avatar" class="form-control" aria-describedby="avatarHelpBlock"
+               name="avatar" value="{{old('avatar')}}">
+        @error('title')
+        <p> class="text-danger">{{$message}}</p>
+        @enderror
         <label for="city_id" class="form-label">Город пользователя</label>
         <select class="form-control" id="city" name="city_id">
             @foreach($cities as $city)

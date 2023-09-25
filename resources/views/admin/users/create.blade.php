@@ -15,9 +15,15 @@
         @error('title')
         <p class="text-danger">{{$message}}</p>
         @enderror
-        <label for="description" class="form-label">Email пользователя</label>
-        <input type="text" id="email" class="form-control" aria-describedby="descriptionHelpBlock"
+        <label for="email" class="form-label">Email пользователя</label>
+        <input type="text" id="email" class="form-control" aria-describedby="emailHelpBlock"
                name="email" value="{{old('email')}}">
+        @error('title')
+        <p> class="text-danger">{{$message}}</p>
+        @enderror
+        <label for="avatar" class="form-label">Аватар пользователя</label>
+        <input type="text" id="avatar" class="form-control" aria-describedby="avatarHelpBlock"
+               name="avatar" value="{{old('avatar')}}">
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
@@ -36,5 +42,5 @@
         <button class="btn btn-success">Создать</button>
     </form>
 
-    <a class="btn btn-default" href="{{route('cities.index')}}">Назад</a>
+    <a class="btn btn-default" href="{{route('users.index')}}">Назад</a>
 @endsection
