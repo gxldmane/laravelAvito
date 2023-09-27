@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Pagination\Paginator;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events): void
     {
+        Paginator::defaultView('vendor.pagination.bootstrap-4');
 
 
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
