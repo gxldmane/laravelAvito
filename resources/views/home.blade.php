@@ -13,7 +13,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a class="btn btn-danger" href="{{route('admin.main.index')}}">Админка</a>
+                        @can('view', auth()->user())
+                            <a class="btn btn-danger" href="{{route('admin.main.index')}}">Админка</a>
+                        @endcan
                     </div>
                 </div>
             </div>

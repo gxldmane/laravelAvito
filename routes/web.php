@@ -28,7 +28,7 @@ Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register'
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'App\Http\Controllers\Admin\Main\IndexController')->name('admin.main.index');
     Route::group(['prefix' => 'categories'], function ()
     {
