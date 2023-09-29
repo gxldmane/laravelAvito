@@ -8,7 +8,7 @@ use Illuminate\Auth\Access\Response;
 class AdminPolicy
 {
     /**
-     * Determine whether the user can view any models.
+     * Determine whether the seller can view any models.
      */
     public function viewAny(User $user): bool
     {
@@ -16,7 +16,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can view the model.
+     * Determine whether the seller can view the model.
      */
     public function view(User $user, User $model): bool
     {
@@ -24,7 +24,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can create models.
+     * Determine whether the seller can create models.
      */
     public function create(User $user): bool
     {
@@ -32,7 +32,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can update the model.
+     * Determine whether the seller can update the model.
      */
     public function update(User $user, User $model): bool
     {
@@ -40,7 +40,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can delete the model.
+     * Determine whether the seller can delete the model.
      */
     public function delete(User $user, User $model): bool
     {
@@ -48,7 +48,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can restore the model.
+     * Determine whether the seller can restore the model.
      */
     public function restore(User $user, User $model): bool
     {
@@ -56,7 +56,7 @@ class AdminPolicy
     }
 
     /**
-     * Determine whether the user can permanently delete the model.
+     * Determine whether the seller can permanently delete the model.
      */
     public function forceDelete(User $user, User $model): bool
     {

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,21 +13,26 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'web'], function () {
+    Auth::routes(); // Генерация маршрутов для аутентификации
+    // Другие маршруты вашего приложения
 });
+Route::get('/', 'App\Http\Controllers\Site\Main\IndexController')->name('site.index');
+Route::get('/product/{product}', 'App\Http\Controllers\Site\Product\ShowController')->name('product.show');
+Route::get('/seller/{seller}', 'App\Http\Controllers\Site\Seller\ShowController')->name('seller.show');
+Route::post('/seller/{seller}/sendMessage', 'App\Http\Controllers\Site\Seller\SendMessageController')->name('seller.sendMessage');
+Route::get('/profile', 'App\Http\Controllers\Site\Profile\IndexController')->name('profile.index');
+Route::get('/profile/edit', 'App\Http\Controllers\Site\Profile\EditController')->name('profile.edit');
 
-Auth::routes();
+
+
+
+
 
 Route::get('/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
 
 
 Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@register')->name('register.post');
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'App\Http\Controllers\Admin\Main\IndexController')->name('admin.main.index');
@@ -65,11 +71,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/', 'App\Http\Controllers\Admin\User\IndexController')->name('users.index');
         Route::get('/create','App\Http\Controllers\Admin\User\CreateController')->name('users.create');
         Route::post('/','App\Http\Controllers\Admin\User\StoreController')->name('users.store');
-        Route::get('/{user}','App\Http\Controllers\Admin\User\ShowController')->name('users.show');
-        Route::get('/{user}/edit','App\Http\Controllers\Admin\User\EditController')->name('users.edit');
-        Route::patch('/{user}','App\Http\Controllers\Admin\User\UpdateController')->name('users.update');
-        Route::delete('/{user}','App\Http\Controllers\Admin\User\DestroyController')->name('users.delete');
+        Route::get('/{seller}','App\Http\Controllers\Admin\User\ShowController')->name('users.show');
+        Route::get('/{seller}/edit','App\Http\Controllers\Admin\User\EditController')->name('users.edit');
+        Route::patch('/{seller}','App\Http\Controllers\Admin\User\UpdateController')->name('users.update');
+        Route::delete('/{seller}','App\Http\Controllers\Admin\User\DestroyController')->name('users.delete');
     });
-
-
 });
+

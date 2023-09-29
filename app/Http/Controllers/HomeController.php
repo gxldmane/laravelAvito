@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $this->authorize('view', auth()->user());
-        if(auth()->user()->role === 'user') {
+        if(auth()->user()->role === 'seller') {
             return view('home');
         }
         return redirect(route('admin.main.index'));

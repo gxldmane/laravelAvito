@@ -23,7 +23,7 @@ class AdFactory extends Factory
             'title' => $this->faker->word(),
             'description' => $this->faker->sentence(5),
             'price' => random_int(100, 5000),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->imageUrl('200', '200'),
             'category_id' => Category::get()->random()->id,
             'city_id' => City::get()->random()->id,
             'user_id' => User::get()->random()->id
