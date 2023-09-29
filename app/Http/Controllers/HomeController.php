@@ -19,11 +19,14 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     *
      */
     public function index()
     {
         $this->authorize('view', auth()->user());
-        return view('home');
+        if(auth()->user()->role === 'user') {
+            return view('home');
+        }
+        return redirect(route('admin.main.index'));
     }
 }
