@@ -122,9 +122,9 @@ return [
     | User Menu
     |--------------------------------------------------------------------------
     |
-    | Here you can activate and change the user menu.
+    | Here you can activate and change the seller menu.
     |
-    | For detailed instructions you can look the user menu section here:
+    | For detailed instructions you can look the seller menu section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */

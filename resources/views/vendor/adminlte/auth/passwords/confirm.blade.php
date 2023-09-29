@@ -28,7 +28,7 @@
             </a>
         </div>
 
-        {{-- Lockscreen user name --}}
+        {{-- Lockscreen seller name --}}
         <div class="lockscreen-name">
             {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}
         </div>

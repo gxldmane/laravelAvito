@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(25)->create();
         City::factory(25)->create();
         User::factory(25)->create();
-        Ad::factory(25)->create();
+        Ad::factory(36)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
