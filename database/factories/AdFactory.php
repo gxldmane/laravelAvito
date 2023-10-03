@@ -21,7 +21,7 @@ class AdFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'description' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(25),
             'price' => random_int(100, 5000),
             'image' => $this->faker->imageUrl('200', '200'),
             'category_id' => Category::get()->random()->id,
