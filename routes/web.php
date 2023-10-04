@@ -22,9 +22,12 @@ Route::get('/product/{product}', 'App\Http\Controllers\Site\Product\ShowControll
 Route::get('/seller/{seller}', 'App\Http\Controllers\Site\Seller\ShowController')->name('seller.show');
 Route::post('/seller/{seller}/sendMessage', 'App\Http\Controllers\Site\Seller\SendMessageController')->name('seller.sendMessage');
 Route::get('/profile', 'App\Http\Controllers\Site\Profile\IndexController')->name('profile.index');
+
 Route::get('/profile/edit', 'App\Http\Controllers\Site\Profile\EditController')->name('profile.edit');
+Route::patch('/profile', 'App\Http\Controllers\Site\Profile\UpdateController')->name('profile.update');
 
-
+Route::get('/profile/create', 'App\Http\Controllers\Site\Product\CreateController')->name('product.create');
+Route::post('/profile/create', 'App\Http\Controllers\Site\Product\StoreController')->name('product.store');
 
 
 

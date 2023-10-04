@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Site\Product;
 
 
 
-use App\Http\Controllers\Admin\Ad\BaseController;
 use App\Models\Ad;
 
 class  ShowController extends BaseController

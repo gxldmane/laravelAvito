@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'city_id' => 'integer|required',
             'role' => '',
             'password' => '',
-            'avatar' => 'avatar',
+            'avatar' => 'string',
         ];
     }
 }
