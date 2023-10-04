@@ -19,7 +19,7 @@
         <ul class="navbar-nav ml-auto">
             @auth
                 <li class="nav-item">
-                    <a href="{{ route('ads.create') }}" class="nav-link">Создать объявление</a>
+                    <a href="{{ route('product.create') }}" class="nav-link">Создать объявление</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
