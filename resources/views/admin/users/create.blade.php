@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <form action="{{route('users.store')}}" method="post">
+    <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <label for="name" class="form-label">Имя пользователя</label>
         <input type="text" id="name" class="form-control" aria-describedby="titleHelpBlock" name="name"

@@ -5,7 +5,11 @@
         <div class="row">
             <div class="col-md-4">
                 <!-- Фото пользователя -->
-                <img src="{{$seller->avatar}}" alt="{{ $seller->name }}" class="rounded-circle">
+                <img
+                    @if($seller->avatar == null)
+                        src="{{asset('storage/avatars/placeholder.png')}}" alt="{{ $seller->name }}" class="rounded-circle">
+                    @endif
+                    src="{{asset('storage/' .$seller->avatar)}}" alt="{{ $seller->name }}" class="rounded-circle">
                 <!-- Имя пользователя -->
                 <h2>{{ $seller->name }}</h2>
                 <!-- Адрес электронной почты -->
@@ -20,11 +24,18 @@
                     @foreach($ads as $ad)
                         <div class="col-md-4">
                             <div class="card">
-                                <img src="{{ $ad->image }}" alt="{{ $ad->title }}" class="card-img-top">
+                                <img
+                                    @if($ad->image == null)
+                                        src="{{ asset('storage/images/placeholder.pnh') }}" alt="{{ $ad->image }}" class="profile-photo">
+                                @elseif($ad->image != null)
+                                    src="{{ asset('storage/'. $ad->image) }}" alt="{{ $ad->image }}" class="profile-photo">
+                                @endif
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $ad->title }}</h4>
                                     <h5 class="card-text">Цена: {{ $ad->price }} Р</h5>
-                                    <p class="card-text">{{ $ad->created_at->format('d.m.Y H:i') }}</p>
+                                    @if($ad->created_at != null)
+                                        <p class="card-text">{{ $ad->created_at->format('d.m.Y H:i') }}</p>
+                                    @endif
                                     <a href="{{ route('product.show', $ad->id) }}" class="btn btn-primary">Подробнее</a>
                                 </div>
                             </div>

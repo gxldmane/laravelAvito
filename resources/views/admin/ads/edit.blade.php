@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <form action="{{route('ads.update', $ad->id)}}" method="post">
+    <form action="{{route('ads.update', $ad->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <label for="title" class="form-label">Название объявления</label>
@@ -28,9 +28,14 @@
         @error('title')
         <p class=" text-danger">{{$message}}</p>
         @enderror
-        <label for="image" class="form-label">Фото объявления</label>
-        <input type="text" id="inputimage" class="form-control" aria-describedby="imageHelpBlock" name="image"
-               value="{{$ad->image}}"
+        <div class="w-25">
+            <img src="{{asset('storage/'. $ad->image)}}" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Изображения объявления</label>
+            <input class="form-control" type="file" id="formFile" name="image"
+                   value="{{asset('storage/'. $ad->image)}}">
+        </div>
         @error('title')
         <p class=" text-danger">{{$message}}</p>
         @enderror

@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <form action="{{route('ads.store')}}" method="post">
+    <form action="{{route('ads.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <label for="title" class="form-label">Название объявления</label>
         <input type="text" id="inputtitle" class="form-control" aria-describedby="titleHelpBlock" name="title"
@@ -27,9 +27,10 @@
         @error('title')
         <p class="text-danger">{{$message}}</p>
         @enderror
-        <label for="image" class="form-label">Фото объявления</label>
-        <input type="text" id="inputimage" class="form-control" aria-describedby="imageHelpBlock" name="image"
-               value="{{old('image')}}">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Изображения объявления</label>
+            <input class="form-control" type="file" id="formFile" name="image" value="{{old('image')}}">
+        </div>
         @error('title')
         <p class="text-danger">{{$message}}</p>
         @enderror

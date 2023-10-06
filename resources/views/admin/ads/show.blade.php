@@ -23,7 +23,7 @@
             <td>{{$ad->title}}</td>
             <td>{{$ad->description}}</td>
             <td>{{$ad->price}}</td>
-            <td>{{$ad->image}}</td>
+            <td>{{asset($ad->image)}}</td>
         <tr>
     </table>
     <div>
