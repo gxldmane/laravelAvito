@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <form action="{{route('profile.update')}}" method="post">
+    <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <label for="name" class="form-label">Имя пользователя</label>
@@ -22,9 +22,14 @@
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
-        <label for="avatar" class="form-label">Аватар пользователя</label>
-        <input type="text" id="avatar" class="form-control" aria-describedby="avatarHelpBlock"
-               name="avatar" value="{{$user->avatar}}">
+        <div class="w-25">
+            <img src="{{asset('storage/'. $user->avatar)}}" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Аватар пользователя</label>
+            <input class="form-control" type="file" id="formFile" name="avatar"
+                   value="{{asset('storage/'. $user->image)}}">
+        </div>
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror

@@ -3,7 +3,12 @@
 @section('content')
     <div class="profile">
         <div class="profile-header">
-            <img src="{{ $user->avatar }}" alt="{{ $user->avatar }}" class="profile-photo">
+            <img
+                @if($user->avatar == null)
+                    src="{{ asset('storage/avatars/placeholder.pnh') }}" alt="{{ $user->avatar }}" class="profile-photo">
+                @elseif($user->avatar != null)
+                    src="{{ asset('storage/'. $user->avatar) }}" alt="{{ $user->avatar }}" class="profile-photo">
+                @endif
             <h1>Здравствуйте, {{ $user->name }}</h1>
         </div>
         <div class="profile-ads">

@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use Alirezasedghi\LaravelImageFaker\ImageFaker;
+use Alirezasedghi\LaravelImageFaker\Services\FakePeople;
+use Alirezasedghi\LaravelImageFaker\Services\Picsum;
 use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
@@ -18,10 +20,11 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $imageFaker = new ImageFaker(new FakePeople());
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'avatar' => $this->faker->imageUrl('160', '160'),
+            'avatar' => $imageFaker->image('public/storage/avatars', 150, 150, 'avatars'),
             'city_id' => City::get()->random()->id,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

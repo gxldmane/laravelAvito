@@ -5,11 +5,13 @@ namespace App\Services\Product;
 
 
 use App\Models\Ad;
+use Illuminate\Support\Facades\Storage;
 
 class Service
 {
     public function store($data, $user)
     {
+        $data['image'] = Storage::disk('public')->put('/images', $data['image']);
         Ad::create([
             'title' => $data['title'],
             'description' => $data['description'],
@@ -21,6 +23,7 @@ class Service
         ]);
     }
     public function update($ad, $data, $user) {
+        $data['image'] = Storage::disk('public')->put('/images', $data['image']);
         $ad->update([
             'title' => $data['title'],
             'description' => $data['description'],

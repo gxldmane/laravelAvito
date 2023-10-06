@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <form action="{{route('users.update', $user->id)}}" method="post">
+    <form action="{{route('users.update', $user->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <label for="name" class="form-label">Имя пользователя</label>

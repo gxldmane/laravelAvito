@@ -11,13 +11,21 @@
                 <!-- Фото и описание объявления -->
                 <div class="ad-details">
                     <div class="ad-image">
-                        <img src="{{$product->image}}" alt="{{$product->image}}">
+                        <img
+                            @if($product->image == null)
+                                src="{{asset('storage/images/placeholder.png')}}" alt="{{$product->image}}">
+                        @elseif($product->image != null)
+                            src="{{asset('storage/'. $product->image)}}" alt="{{$product->image}}">
+                        @endif
                     </div>
                     <h3>Цена: {{ $product->price }} Р</h3>
                     <div class="ad-description">
                         <h3>Описание:</h3>
                         <p>{{$product->description}}</p>
-                        <h5>Создано: {{ $product->created_at->format('d.m.Y H:i') }}</h5>
+                        @if($product->created_at != null)
+                            <h5>Создано: {{ $product->created_at->format('d.m.Y H:i') }}</h5>
+                        @endif
+
 
                         <!-- Кнопка "Купить" -->
                     </div>
@@ -27,7 +35,12 @@
                 <!-- Фото продавца -->
                 <a href="{{ route('seller.show', $seller) }}" style="text-decoration: none; color: inherit;">
                     <div class="seller-image product-img mb-2">
-                        <img src="{{$seller->avatar}}" alt="Фото продавца" class="rounded-circle">
+                        <img
+                            @if($seller->avatar == null)
+                                src="{{ asset('storage/avatars/placeholder.pnh') }}" alt="{{ $seller->avatar }}" class="profile-photo">
+                        @elseif($seller->avatar != null)
+                            src="{{ asset('storage/'. $seller->avatar) }}" alt="{{ $seller->avatar }}" class="profile-photo">
+                        @endif
                     </div>
                 </a>
                 <!-- Имя и информация о продавце -->
