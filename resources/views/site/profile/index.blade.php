@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('site.layouts.site')
 
 @section('content')
     <div class="profile">
@@ -14,9 +14,9 @@
         <div class="profile-ads">
             <h2>Ваши объявления</h2>
             <ul>
-                @foreach ($ads as $ad)
-                    <li>{{ $ad->title }}</li>
-                @endforeach
+            @foreach ($ads as $ad)
+                <li><h4><a class= href="{{route('product.show', $ad->id)}}">{{ $ad->title }}</a></h4></li>
+            @endforeach
             </ul>
         </div>
         <div class="profile-actions">

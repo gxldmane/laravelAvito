@@ -74,10 +74,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/', 'App\Http\Controllers\Admin\User\IndexController')->name('users.index');
         Route::get('/create','App\Http\Controllers\Admin\User\CreateController')->name('users.create');
         Route::post('/','App\Http\Controllers\Admin\User\StoreController')->name('users.store');
-        Route::get('/{seller}','App\Http\Controllers\Admin\User\ShowController')->name('users.show');
-        Route::get('/{seller}/edit','App\Http\Controllers\Admin\User\EditController')->name('users.edit');
-        Route::patch('/{seller}','App\Http\Controllers\Admin\User\UpdateController')->name('users.update');
-        Route::delete('/{seller}','App\Http\Controllers\Admin\User\DestroyController')->name('users.delete');
+        Route::get('/{user}','App\Http\Controllers\Admin\User\ShowController')->name('users.show');
+        Route::get('/{user}/edit','App\Http\Controllers\Admin\User\EditController')->name('users.edit');
+        Route::patch('/{user}','App\Http\Controllers\Admin\User\UpdateController')->name('users.update');
+        Route::delete('/{user}','App\Http\Controllers\Admin\User\DestroyController')->name('users.delete');
     });
 });
 

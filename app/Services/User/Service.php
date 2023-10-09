@@ -3,8 +3,6 @@
 namespace App\Services\User;
 
 
-
-
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -23,8 +21,17 @@ class Service
 
         ]);
     }
-    public function update($user, $data) {
-        $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
+
+    public function update($user, $data)
+    {
+        if (array_key_exists('avatar', $data)) {
+            $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
+            if ($user->avatar != null) {
+                Storage::delete($user->avatar);
+            }
+        } else {
+            $data['avatar'] = $user['avatar'];
+        }
         $user->update([
             'name' => $data['name'],
             'email' => $data['email'],

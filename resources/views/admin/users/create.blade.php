@@ -21,9 +21,10 @@
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
-        <label for="avatar" class="form-label">Аватар пользователя</label>
-        <input type="text" id="avatar" class="form-control" aria-describedby="avatarHelpBlock"
-               name="avatar" value="{{old('avatar')}}">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Аватар пользователя</label>
+            <input class="form-control" type="file" id="formFile" name="avatar"
+        </div>
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror

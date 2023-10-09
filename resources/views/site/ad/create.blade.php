@@ -49,5 +49,5 @@
         <button class="btn btn-success">Создать</button>
     </form>
 
-    <a class="btn btn-default" href="{{route('ads.index')}}">Назад</a>
+    <a class="btn btn-default" href="{{route('profile.index')}}">Назад</a>
 @endsection
