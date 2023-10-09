@@ -11,7 +11,7 @@
                 <!-- Фото и описание объявления -->
                 <div class="ad-details">
                     <div class="ad-image">
-                        <img
+                        <img class="" width="400" height="300"
                             @if($product->image == null)
                                 src="{{asset('storage/images/placeholder.png')}}" alt="{{$product->image}}">
                         @elseif($product->image != null)
@@ -31,25 +31,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 ">
                 <!-- Фото продавца -->
                 <a href="{{ route('seller.show', $seller) }}" style="text-decoration: none; color: inherit;">
-                    <div class="seller-image product-img mb-2">
-                        <img
+                    <div class="seller-image product-img ml-5 h-50">
+                        <img width="200" height="200"
                             @if($seller->avatar == null)
-                                src="{{ asset('storage/avatars/placeholder.pnh') }}" alt="{{ $seller->avatar }}" class="profile-photo">
+                                src="{{ asset('storage/avatars/placeholder.pnh') }}" alt="{{ $seller->avatar }}" class="img-fluid profile-photo">
                         @elseif($seller->avatar != null)
-                            src="{{ asset('storage/'. $seller->avatar) }}" alt="{{ $seller->avatar }}" class="profile-photo">
+                            src="{{ asset('storage/'. $seller->avatar) }}" alt="{{ $seller->avatar }}" class=" img-fluid rounded-circle profile-photo">
                         @endif
                     </div>
                 </a>
                 <!-- Имя и информация о продавце -->
-                <div class="seller-info">
+                <div class="seller-info ml-5">
                     <h3>{{$seller->name}}</h3>
                     <p>Город: {{$seller->city->title}}</p>
                     <p>Email: {{$seller->email}}</p>
                 </div>
-                <button class="btn btn-primary">Написать</button>
+                <button class="btn btn-primary ml-5 ">Написать</button>
             </div>
         </div>
     </div>

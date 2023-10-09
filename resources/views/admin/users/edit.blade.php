@@ -22,9 +22,14 @@
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
-        <label for="avatar" class="form-label">Аватар пользователя</label>
-        <input type="text" id="avatar" class="form-control" aria-describedby="avatarHelpBlock"
-               name="avatar" value="{{old('avatar')}}">
+        <label>Текущее изображение пользователя</label>
+        <div class="">
+            <img class="img-fluid" width="300" height="300" src="{{asset('storage/'. $user->avatar)}}" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Аватар пользователя</label>
+            <input class="form-control" type="file" id="formFile" name="avatar" value="{{asset('storage/'. $user->avatar)}}">
+        </div>
         @error('title')
         <p> class="text-danger">{{$message}}</p>
         @enderror
@@ -32,7 +37,7 @@
         <select class="form-control" id="city" name="city_id">
             @foreach($cities as $city)
                 <option
-                    {{$user->id === $user->city->id ? ' selected': ''}}
+                    {{$city->id === $user->city->id ? ' selected': ''}}
                     value="{{$city->id}}">{{$city->title}}</option>
             @endforeach
         </select>

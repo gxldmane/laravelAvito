@@ -37,7 +37,7 @@
         <select class="form-control" id="city" name="city_id">
             @foreach($cities as $city)
                 <option
-                    {{$user->id === $user->city->id ? ' selected': ''}}
+                    {{$city->id === $user->city->id ? ' selected': ''}}
                     value="{{$city->id}}">{{$city->title}}</option>
             @endforeach
         </select>

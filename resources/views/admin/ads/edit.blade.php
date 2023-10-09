@@ -28,8 +28,8 @@
         @error('title')
         <p class=" text-danger">{{$message}}</p>
         @enderror
-        <div class="w-25">
-            <img src="{{asset('storage/'. $ad->image)}}" alt="">
+        <div class="">
+            <img class="img-fluid" width="300" height="300" src="{{asset('storage/'. $ad->image)}}" alt="">
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Изображения объявления</label>
@@ -43,7 +43,7 @@
         <select class="form-control" id="category" name="category_id">
             @foreach($categories as $category)
                 <option
-                    {{$ad->id === $ad->category->id ? ' selected': ''}}
+                    {{$category->id === $ad->category->id ? ' selected': ''}}
                     value="{{$category->id}}">{{$category->title}}</option>
             @endforeach
         </select>
@@ -51,7 +51,7 @@
         <select class="form-control" id="city" name="city_id">
             @foreach($cities as $city)
                 <option
-                    {{$ad->id === $ad->city->id ? ' selected': ''}}
+                    {{$city->id === $ad->city->id ? ' selected': ''}}
                     value="{{$city->id}}">{{$city->title}}</option>
             @endforeach
         </select>
@@ -59,7 +59,7 @@
         <select class="form-control" id="user" name="user_id">
             @foreach($users as $user)
                 <option
-                    {{$ad->id === $ad->user->id ? ' selected': ''}}
+                    {{$user->id === $ad->user->id ? ' selected': ''}}
                     value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
         </select>
