@@ -22,7 +22,7 @@
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/gxldmame/laravelAvito.git
+   git clone https://github.com/gxldmane/laravelAvito.git
    ```
 
 2. Перейдите в директорию проекта:
